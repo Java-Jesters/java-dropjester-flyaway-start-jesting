@@ -9,6 +9,6 @@ CREATE TABLE Project (
 	finishDate DateTime,
 	PRIMARY KEY(projectId),
 	FOREIGN KEY (clientId) REFERENCES Client(clientId),
-	FOREIGN KEY (techLeadId) REFERENCES DeliveryEmployee(deliveryEmployeeId),
-	FOREIGN KEY (salesEmployeeId) REFERENCES SalesEmployee(salesEmployeeId)
+	FOREIGN KEY (techLeadId) REFERENCES DeliveryEmployee(employeeId),
+	FOREIGN KEY (salesEmployeeId) REFERENCES SalesEmployee(employeeId)
 );
