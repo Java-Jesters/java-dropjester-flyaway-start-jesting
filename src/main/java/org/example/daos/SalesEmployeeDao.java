@@ -18,11 +18,23 @@ public class SalesEmployeeDao {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery(
-                    "SELECT DISTINCT Employee.employeeId, firstName, lastName, salary, bankAccountNumber, nationalInsuranceNumber" +
-                    "FROM Employee INNER JOIN SalesEmployee" +
-                    "WHERE Employee.employeeId IN (" +
-                            "SELECT SalesEmployee.employeeId" +
-                            "FROM SalesEmployee"
+                    "SELECT DISTINCT "
+                            +
+                            "Employee.employeeId, "
+                            +
+                            "firstName, "
+                            +
+                            "lastName, "
+                            +
+                            "salary, bankAccountNumber, nationalInsuranceNumber"
+                            +
+                            "FROM Employee INNER JOIN SalesEmployee"
+                            +
+                            "WHERE Employee.employeeId IN"
+                            +
+                            "(SELECT SalesEmployee.employeeId"
+                            +
+                            "FROM SalesEmployee)"
             );
 
             while (resultSet.next()) {

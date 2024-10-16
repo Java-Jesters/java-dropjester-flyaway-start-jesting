@@ -10,7 +10,8 @@ public class SalesEmployee extends Employee {
                          final String bankAccountNumber,
                          final String nationalInsuranceNumber
     ) {
-        super(employeeId, name, salary, bankAccountNumber, nationalInsuranceNumber);
+        super(employeeId, name, salary, bankAccountNumber,
+                nationalInsuranceNumber);
         this.commissionRate = commissionRate;
     }
 
