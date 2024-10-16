@@ -9,7 +9,7 @@ public class Project {
     private int clientId;
     private int techLeadId;
     private int salesEmployeeId;
-    private final ProjectDate projectDate;
+    private ProjectDate projectDate;
 
     public Project(final int projectId,
                    final String name,
