@@ -17,7 +17,7 @@ public class SalesEmployeeService {
 
     public List<SalesEmployeeResponse> getAllSalesEmployees()
             throws SQLException {
-        return SalesEmployeeMapper.mapSalesEmployeeListToSalesEmployeeResponseList(
+        return SalesEmployeeMapper.toSalesEmployeeResponseList(
                 salesEmployeeDao.getAllSalesEmployees());
     }
 

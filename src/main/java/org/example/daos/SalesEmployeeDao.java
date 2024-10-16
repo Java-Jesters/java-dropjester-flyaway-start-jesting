@@ -26,13 +26,19 @@ public class SalesEmployeeDao {
                             +
                             "lastName, "
                             +
-                            "salary, bankAccountNumber, nationalInsuranceNumber"
+                            "salary, "
                             +
-                            "FROM Employee INNER JOIN SalesEmployee"
+                            "bankAccountNumber, "
                             +
-                            "WHERE Employee.employeeId IN"
+                            "nationalInsuranceNumber, "
                             +
-                            "(SELECT SalesEmployee.employeeId"
+                            "SalesEmployee.commissionRate "
+                            +
+                            "FROM Employee INNER JOIN SalesEmployee "
+                            +
+                            "WHERE Employee.employeeId IN "
+                            +
+                            "(SELECT SalesEmployee.employeeId "
                             +
                             "FROM SalesEmployee)"
             );
@@ -40,10 +46,12 @@ public class SalesEmployeeDao {
             while (resultSet.next()) {
                 SalesEmployee salesEmployee = new SalesEmployee(
                         resultSet.getInt("employeeId"),
-                        resultSet.getString("firstName" + " " + "lastName"),
-                        resultSet.getInt("salary"),
+                        resultSet.getString("firstName") + " "
+                        + resultSet.getString("lastName"),
+                        resultSet.getDouble("salary"),
                         resultSet.getString("bankAccountNumber"),
-                        resultSet.getString("nationalInsuranceNumber"));
+                        resultSet.getString("nationalInsuranceNumber"),
+                        resultSet.getDouble("commissionRate"));
                 salesEmployees.add(salesEmployee);
             }
         }

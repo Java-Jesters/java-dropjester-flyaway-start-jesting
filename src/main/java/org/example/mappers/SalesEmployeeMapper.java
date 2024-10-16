@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class SalesEmployeeMapper {
 
-    public static List<SalesEmployeeResponse> mapSalesEmployeeListToSalesEmployeeResponseList(
+    public static List<SalesEmployeeResponse> toSalesEmployeeResponseList(
             List<SalesEmployee> salesEmployees) {
         return salesEmployees.stream()
                 .map(salesEmployee -> new SalesEmployeeResponse(

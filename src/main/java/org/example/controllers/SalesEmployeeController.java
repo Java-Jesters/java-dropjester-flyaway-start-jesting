@@ -31,6 +31,7 @@ public class SalesEmployeeController {
                     .build();
 
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return Response.serverError().build();
         }
     }

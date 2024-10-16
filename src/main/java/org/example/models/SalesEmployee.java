@@ -8,7 +8,8 @@ public class SalesEmployee extends Employee {
                          final String name,
                          final double salary,
                          final String bankAccountNumber,
-                         final String nationalInsuranceNumber
+                         final String nationalInsuranceNumber,
+                         final double commissionRate
     ) {
         super(employeeId, name, salary, bankAccountNumber,
                 nationalInsuranceNumber);
