@@ -1,5 +1,6 @@
 package org.example.daos;
 
+import org.example.models.DeliveryEmployee;
 import org.example.models.Employee;
 
 import java.sql.Connection;
@@ -8,7 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DeliveryEmployeeDao {
-    public Employee getEmployeeById(final int id) throws SQLException {
+    public DeliveryEmployee getDeliveryEmployeeById(final int id)
+            throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String query =
                     "SELECT "
@@ -30,7 +32,7 @@ public class DeliveryEmployeeDao {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                return new Employee(
+                return new DeliveryEmployee(
                         resultSet.getInt("employeeId"),
                         resultSet.getString("firstName") + " "
                                 + resultSet.getString("lastName"),
