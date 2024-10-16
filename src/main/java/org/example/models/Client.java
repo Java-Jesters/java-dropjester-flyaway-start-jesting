@@ -3,12 +3,12 @@ package org.example.models;
 public class Client {
     private int clientId;
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
     private ClientAddress clientAddress;
 
     public Client(final int clientId,
                   final String name,
-                  final int phoneNumber,
+                  final String phoneNumber,
                   final ClientAddress clientAddress
     ) {
         this.clientId = clientId;
@@ -37,11 +37,11 @@ public class Client {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(final int phoneNumber) {
+    public void setPhoneNumber(final String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
