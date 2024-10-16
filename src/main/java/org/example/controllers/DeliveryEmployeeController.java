@@ -32,7 +32,6 @@ public class DeliveryEmployeeController {
                                     .getDeliveryEmployees())
                     .build();
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.getMessage());
             return Response.serverError().build();
         }
     }
