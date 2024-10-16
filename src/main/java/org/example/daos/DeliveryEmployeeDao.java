@@ -1,12 +1,13 @@
 package org.example.daos;
 
 import org.example.models.DeliveryEmployee;
-import org.example.models.Employee;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeliveryEmployeeDao {
     public DeliveryEmployee getDeliveryEmployeeById(final int id)
@@ -14,17 +15,17 @@ public class DeliveryEmployeeDao {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String query =
                     "SELECT "
-                            + "employeeId, "
-                            + "firstName,"
+                            + "Employee.employeeId, "
+                            + "firstName, "
                             + "lastName, "
                             + "salary, "
                             + "bankAccountNumber, "
-                            + "nationalInsuranceNumber, "
+                            + "nationalInsuranceNumber "
                             + "FROM Employee "
                             + "INNER JOIN DeliveryEmployee "
                             + "ON Employee.employeeId = "
                             + "DeliveryEmployee.employeeId "
-                            + "where employeeId =?;";
+                            + "WHERE Employee.employeeId = ?;";
 
             PreparedStatement preparedStatement =
                     connection.prepareStatement(query);
@@ -45,5 +46,45 @@ public class DeliveryEmployeeDao {
         }
 
         return null;
+    }
+
+    public List<DeliveryEmployee> getAllDeliveryEmployees()
+            throws SQLException {
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String query =
+                    "SELECT "
+                            + "Employee.employeeId, "
+                            + "firstName, "
+                            + "lastName, "
+                            + "salary, "
+                            + "bankAccountNumber, "
+                            + "nationalInsuranceNumber "
+                            + "FROM Employee "
+                            + "INNER JOIN DeliveryEmployee "
+                            + "ON Employee.employeeId = "
+                            + "DeliveryEmployee.employeeId;";
+
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement(query);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<DeliveryEmployee> deliveryEmployees
+                    = new ArrayList<>();
+
+            while (resultSet.next()) {
+                deliveryEmployees.add(new DeliveryEmployee(
+                        resultSet.getInt("employeeId"),
+                        resultSet.getString("firstName") + " "
+                                + resultSet.getString("lastName"),
+                        resultSet.getDouble("salary"),
+                        resultSet.getString("bankAccountNumber"),
+                        resultSet.getString("national"
+                                + "InsuranceNumber")
+                ));
+            }
+
+            return deliveryEmployees;
+        }
     }
 }
