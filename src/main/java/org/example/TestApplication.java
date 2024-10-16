@@ -10,6 +10,11 @@ import org.example.controllers.TestController;
 import org.example.daos.SalesEmployeeDao;
 import org.example.daos.TestDao;
 import org.example.services.SalesEmployeeService;
+import org.example.controllers.DeliveryEmployeeController;
+import org.example.controllers.TestController;
+import org.example.daos.DeliveryEmployeeDao;
+import org.example.daos.TestDao;
+import org.example.services.DeliveryEmployeeService;
 import org.example.services.TestService;
 
 public class TestApplication extends Application<TestConfiguration> {
@@ -41,6 +46,12 @@ public class TestApplication extends Application<TestConfiguration> {
         environment.jersey()
                 .register(new SalesEmployeeController(
                         new SalesEmployeeService(new SalesEmployeeDao())));
+                .register(
+                        new DeliveryEmployeeController(
+                                new DeliveryEmployeeService(
+                                        new DeliveryEmployeeDao()
+                                )
+                        )
+                );
     }
-
 }
