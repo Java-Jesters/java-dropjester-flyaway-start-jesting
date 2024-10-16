@@ -1,5 +1,5 @@
 CREATE TABLE DeliveryEmployee (
-	deliveryEmployeeId int NOT NULL,
-	PRIMARY KEY(deliveryEmployeeId),
-	FOREIGN KEY (deliveryEmployeeId) REFERENCES Employee(employeeId)
+	id int NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY (id) REFERENCES Employee(id)
 );
