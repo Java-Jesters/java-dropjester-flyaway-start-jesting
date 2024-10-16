@@ -41,59 +41,59 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getClientAddressLine1() {
+    public String getAddressLine1() {
         return clientAddress.getAddressLine1();
     }
 
-    public void setClientAddressLine1(final String addressLine1) {
+    public void setAddressLine1(final String addressLine1) {
         this.clientAddress.setAddressLine1(addressLine1);
     }
 
-    public String getClientAddressLine2() {
+    public String getAddressLine2() {
         return clientAddress.getAddressLine2();
     }
 
-    public void setClientAddressLine2(final String addressLine2) {
+    public void setAddressLine2(final String addressLine2) {
         this.clientAddress.setAddressLine2(addressLine2);
     }
 
-    public String getClientAddressCity() {
+    public String getAddressCity() {
         return clientAddress.getAddressCity();
     }
 
-    public void setClientAddressCity(final String addressCity) {
+    public void setAddressCity(final String addressCity) {
         this.clientAddress.setAddressCity(addressCity);
     }
 
-    public String getClientAddressProvince() {
+    public String getAddressProvince() {
         return clientAddress.getAddressProvince();
     }
 
-    public void setClientAddressProvince(final String addressProvince) {
+    public void setAddressProvince(final String addressProvince) {
         this.clientAddress.setAddressProvince(addressProvince);
     }
 
-    public String getClientAddressRegion() {
+    public String getAddressRegion() {
         return clientAddress.getAddressRegion();
     }
 
-    public void setClientAddressRegion(final String addressRegion) {
+    public void setAddressRegion(final String addressRegion) {
         this.clientAddress.setAddressRegion(addressRegion);
     }
 
-    public String getClientAddressCountry() {
+    public String getAddressCountry() {
         return clientAddress.getAddressCountry();
     }
 
-    public void setClientAddressCountry(final String addressCountry) {
+    public void setAddressCountry(final String addressCountry) {
         this.clientAddress.setAddressCountry(addressCountry);
     }
 
-    public String getClientAddressPostalCode() {
+    public String getAddressPostalCode() {
         return clientAddress.getPostalCode();
     }
 
-    public void setClientAddressPostalCode(final String postalCode) {
+    public void setAddressPostalCode(final String postalCode) {
         this.clientAddress.setPostalCode(postalCode);
     }
 }
