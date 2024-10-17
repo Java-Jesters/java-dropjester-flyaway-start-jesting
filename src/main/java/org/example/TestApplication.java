@@ -46,6 +46,7 @@ public class TestApplication extends Application<TestConfiguration> {
         environment.jersey()
                 .register(new SalesEmployeeController(
                         new SalesEmployeeService(new SalesEmployeeDao())));
+        environment.jersey()
                 .register(
                         new DeliveryEmployeeController(
                                 new DeliveryEmployeeService(
