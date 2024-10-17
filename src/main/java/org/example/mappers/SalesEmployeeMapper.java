@@ -6,10 +6,11 @@ import org.example.models.SalesEmployeeResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SalesEmployeeMapper {
+public final class SalesEmployeeMapper {
+    private SalesEmployeeMapper() { }
 
     public static List<SalesEmployeeResponse> toSalesEmployeeResponseList(
-            List<SalesEmployee> salesEmployees) {
+            final List<SalesEmployee> salesEmployees) {
         return salesEmployees.stream()
                 .map(salesEmployee -> new SalesEmployeeResponse(
                         salesEmployee.getEmployeeId(),
